@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/resData">
+        <file>Saves/data.txt</file>
+    </qresource>
+</RCC>
