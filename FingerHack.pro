@@ -9,17 +9,19 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    custom.cpp \
     encryption.cpp \
     hash.cpp \
     main.cpp \
     mainwindow.cpp \
-    workWithText.cpp
+    training.cpp
 
 HEADERS += \
+    custom.h \
     encryption.h \
     hash.h \
     mainwindow.h \
-    workWithText.h
+    training.h
 
 FORMS += \
     mainwindow.ui

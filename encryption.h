@@ -6,10 +6,12 @@
 class ENCRYPTION
 {
     public:
-        QString encryptNumber (int); // шифровка
+        QString encryptNumber (float); // шифровка
 
-        int deEncryptNumber (QString); // расшифровка
+        float deEncryptNumber (QString); // расшифровка
+
         int getTranslateError();
+
     private:
         int kod = 10; // на это значение изменяем наши символы в кодировке
         int translateError = -1;

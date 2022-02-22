@@ -2,7 +2,7 @@
 #include <QDebug>
 
 
-QString ENCRYPTION::encryptNumber(int number)
+QString ENCRYPTION::encryptNumber(float number)
 {
     QString str =  QString::number(number);
 
@@ -13,16 +13,16 @@ QString ENCRYPTION::encryptNumber(int number)
     return str;
 }
 
-int ENCRYPTION::deEncryptNumber(QString str)
+float ENCRYPTION::deEncryptNumber(QString str)
 {
     for(int j = 0; j<str.length();j++){ // здесь возвращаем исходную кодировку
         str[j] = QChar(str[j].unicode() - this->kod);
     }
 
     bool isNumber = false;
-    if(str.toInt(&isNumber)||str=="0") {  // проверка на число, если это не число, тогда файл был поврежден, возвращаем 0
+    if(str.toFloat(&isNumber)||str=="0") {  // проверка на число, если это не число, тогда файл был поврежден, возвращаем 0
                                 // п.с. toInt(&isNumber) считает 0 не числом, поэтому возвращает false, поэтому доп проверка на str=="0"
-        int number = str.toInt();
+        float number = str.toFloat();
         return number;
     }
     else{

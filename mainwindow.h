@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QTimer>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,7 +21,7 @@ public:
 
 private slots:
 
-    void on_lineEdit_textChanged(const QString &arg1);
+    void on_lineEditField_textChanged(const QString &arg1);
 
     void on_butStart_clicked();
 
@@ -30,7 +31,19 @@ private slots:
 
     void on_comboBoxSelectBook_currentIndexChanged(int);
 
+    void on_time();
+
+    void on_update_data();
+
+    void on_win();
+
+    void on_radioButtonCustom_clicked();
+
+    void on_radioButtonTraining_clicked();
+
 private:
     //Ui::MainWindow *ui;
+    QTimer *timer;
+    int min = 0, sec = 0;
 };
 #endif // MAINWINDOW_H
