@@ -76,7 +76,7 @@ public:
     QLabel *labelCurrentMinutes;
     QLineEdit *lineEditSeconds;
     QLabel *labelCurrentSec;
-    QWidget *widget;
+    QWidget *layoutWidget2;
     QVBoxLayout *verticalLayout_3;
     QRadioButton *radioButtonCustom;
     QRadioButton *radioButtonTraining;
@@ -291,6 +291,7 @@ public:
         QFont font3;
         font3.setPointSize(14);
         lineEditField->setFont(font3);
+        lineEditField->setReadOnly(false);
 
         verticalLayout_2->addWidget(lineEditField);
 
@@ -423,19 +424,19 @@ public:
 
         verticalLayout_2->addLayout(horizontalLayout_9);
 
-        widget = new QWidget(centralwidget);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(860, 150, 111, 48));
-        verticalLayout_3 = new QVBoxLayout(widget);
+        layoutWidget2 = new QWidget(centralwidget);
+        layoutWidget2->setObjectName(QString::fromUtf8("layoutWidget2"));
+        layoutWidget2->setGeometry(QRect(860, 150, 111, 48));
+        verticalLayout_3 = new QVBoxLayout(layoutWidget2);
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);
-        radioButtonCustom = new QRadioButton(widget);
+        radioButtonCustom = new QRadioButton(layoutWidget2);
         radioButtonCustom->setObjectName(QString::fromUtf8("radioButtonCustom"));
         radioButtonCustom->setChecked(true);
 
         verticalLayout_3->addWidget(radioButtonCustom);
 
-        radioButtonTraining = new QRadioButton(widget);
+        radioButtonTraining = new QRadioButton(layoutWidget2);
         radioButtonTraining->setObjectName(QString::fromUtf8("radioButtonTraining"));
         radioButtonTraining->setChecked(false);
 
