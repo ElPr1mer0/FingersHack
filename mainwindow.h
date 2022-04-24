@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QTimer>
 
+#define PAUSE 5
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -41,9 +43,13 @@ private slots:
 
     void on_radioButtonTraining_clicked();
 
+    void on_pause_time();
+
 private:
     //Ui::MainWindow *ui;
     QTimer *timer;
+    QTimer *pauseTimer;
     int min = 0, sec = 0;
+    int pauseTime = PAUSE;
 };
 #endif // MAINWINDOW_H

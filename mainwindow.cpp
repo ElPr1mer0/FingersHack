@@ -43,6 +43,9 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
 
     timer = new QTimer(this); //создаем таймер
     connect (timer, SIGNAL(timeout()),this, SLOT(on_time()));
+
+    pauseTimer = new QTimer(this); //создаем таймер для паузы
+    connect (pauseTimer, SIGNAL(timeout()),this, SLOT(on_pause_time()));
 }
 
 MainWindow::~MainWindow()
@@ -212,7 +215,7 @@ void MainWindow::on_butStart_clicked()
         ui->lineEditField->setEnabled(true);
         ui->lineEditCurrentMistakes->setText("0");
         ui->lineEditCurrentSpeed->setText("0");
-        timer->start(1000);
+        pauseTimer->start(1000);
         ui->butCreateTextFromFile->setEnabled(false);
         ui->butLoadtextFromFile->setEnabled(false);
         ui->butStart->setEnabled(false);
@@ -294,6 +297,32 @@ void MainWindow::on_time()
 
 
 ////////////////////////////////////////////////////////////////////////
+///////////////////////////ON_PAUSE_TIME////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+// Эта функция создана для удерживания паузы длиной PAUSE перед игрой.//
+void MainWindow::on_pause_time()
+{
+      if(this->pauseTime<=0){
+        timer->start(1000);
+        ui->lineEditField->setReadOnly(false);
+        ui->lineEditField->setFocus();
+        pauseTimer->stop();
+      }
+      else{
+        --this->pauseTime;
+        ui->lineEditSeconds->setText(QString::number(this->pauseTime));
+        ui->lineEditField->setReadOnly(true);
+      }
+}
+////////////////////////////////////////////////////////////////////////
+///////////////////////////ON_PAUSE_TIME////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////
 ////////////////////////////ON_UPDATE_DATE//////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 // Функция обновляет данные после набора текста, или при загрузке     //
@@ -324,6 +353,7 @@ void MainWindow::on_update_data()
 void MainWindow::on_win()
 {
     timer->stop();
+    this->pauseTime = PAUSE;
     ui->lineEditField->setEnabled(false);
     ui->lineEditField->clear();
 
@@ -393,3 +423,4 @@ void MainWindow::on_radioButtonTraining_clicked()
 ////////////////////////////////////////////////////////////////////////
 ///////////////////ON_RADIO_BUTTON_Training_CLICKED/////////////////////
 ////////////////////////////////////////////////////////////////////////
+

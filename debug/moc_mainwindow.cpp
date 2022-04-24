@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 #include <memory>
-#include "C:/Users/1/Documents/GitHub/FingersHack/mainwindow.h"
+#include "../mainwindow.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
@@ -42,7 +42,7 @@ QT_MOC_LITERAL(180, 14), // "on_update_data"
 QT_MOC_LITERAL(195, 6), // "on_win"
 QT_MOC_LITERAL(202, 28), // "on_radioButtonCustom_clicked"
 QT_MOC_LITERAL(231, 30), // "on_radioButtonTraining_clicked"
-QT_MOC_LITERAL(262, 13) // "on_time_pause"
+QT_MOC_LITERAL(262, 13) // "on_pause_time"
 
     },
     "MainWindow\0on_lineEditField_textChanged\0"
@@ -53,7 +53,7 @@ QT_MOC_LITERAL(262, 13) // "on_time_pause"
     "on_time\0on_update_data\0on_win\0"
     "on_radioButtonCustom_clicked\0"
     "on_radioButtonTraining_clicked\0"
-    "on_time_pause"
+    "on_pause_time"
 };
 #undef QT_MOC_LITERAL
 
@@ -115,7 +115,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 7: _t->on_win(); break;
         case 8: _t->on_radioButtonCustom_clicked(); break;
         case 9: _t->on_radioButtonTraining_clicked(); break;
-        case 10: _t->on_time_pause(); break;
+        case 10: _t->on_pause_time(); break;
         default: ;
         }
     }
